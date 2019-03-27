@@ -5,3 +5,44 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@using Razer_Exercise.Models;
+
+<form action="ListBooks" method="post">
+    <table cellspacing="2" border="1">
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year Published</th>
+        </tr>
+        @{
+            List<Book> temp = (List<Book>)ViewData["Books"];
+
+            foreach (Book i in temp)
+            { 
+              @:<tr>
+                var style = "";
+                if (i.YearPublished > 2010)
+                {
+                    style = "font-weight:bold;";
+                }
+                    @:<td style="@style">
+                        @i.BookId
+                    @:</td>
+                    @:<td style="@style">
+                        @i.Title
+                    @:</td>
+                    @:<td style="@style">
+                        @i.Author
+                    @:</td>
+                    @:<td style="@style">
+                        @i.YearPublished
+                    @:</td>
+              @:</tr>
+            }
+        }
+
+
+    </table>
+</form>

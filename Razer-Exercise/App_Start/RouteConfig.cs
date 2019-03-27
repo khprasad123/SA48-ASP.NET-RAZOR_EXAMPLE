@@ -16,7 +16,7 @@ namespace Razer_Exercise
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Book", action = "ListBooks", id = UrlParameter.Optional }
             );
         }
     }
